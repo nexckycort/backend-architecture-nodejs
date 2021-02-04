@@ -1,5 +1,5 @@
 import { QueryResult } from 'pg'
-import { pool } from '../../database/pgPool'
+import { pool } from '../../loaders/pgPool'
 
 export default class TestService {
   public static deleteUserByEmail(email: string): Promise<QueryResult<any>> {

@@ -1,9 +1,9 @@
-export const confirmAccountHtml = (url: string) => /*html*/`
+export const confirmAccountHtml = (url: string): string => /* html */ `
   <h1 style="
   text-align: center;
   font-family: Arial, Helvetica;
   ">Confirmar tu Cuenta</h1>
-  <p style="font-family: Arial, Helvetica;">Hola, estas a un paso de comenzar a crear una comunidad de workshops, solo debes confirmar tu cuenta en el siguiente enlace:</p>
+  <p style="font-family: Arial, Helvetica;">Hola, estas a un paso de..., solo debes confirmar tu cuenta en el siguiente enlace:</p>
 
   <a style="
   display: block;
@@ -21,7 +21,7 @@ export const confirmAccountHtml = (url: string) => /*html*/`
   <p style="font-family: Arial, Helvetica;">Si no solicitaste este e-mail puedes ignorarlo</p>
 `
 
-export const confirmAccountText = (url: string) => `
+export const confirmAccountText = (url: string): string => `
   Confirmar tu Cuenta
 
   

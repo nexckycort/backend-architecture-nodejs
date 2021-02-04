@@ -10,12 +10,11 @@ const transporter = nodemailer.createTransport({
   }
 } as any)
 
-export const SendEmail = (Options: SendMailOptions) => {
-
-  const optionsEmail: SendMailOptions = Object.assign(Options, { from: 'workshops <noreplay@workshops.com>' })
+export const SendEmail = (Options: SendMailOptions): void => {
+  const optionsEmail: SendMailOptions = Object.assign(Options, { from: 'api <noreplay@api.com>' })
 
   transporter.sendMail(optionsEmail, (error, info) => {
-    if (error) {
+    if (error !== null) {
       console.log('Error occurred')
       console.log(error.message)
       return process.exit(1)

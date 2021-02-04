@@ -1,4 +1,4 @@
-export const template = (title: string, body?: string): string => /*html*/`
+export const template = (title: string, body?: string): string => /* html */ `
   <!DOCTYPE html>
   <html lang="en">
     <head>
@@ -8,7 +8,7 @@ export const template = (title: string, body?: string): string => /*html*/`
     </head>
     <body>
       <h1>${title}</h1>
-      ${body ? `<p>${body}</p>` : ''}
+      ${body !== undefined ? `<p>${body}</p>` : ''}
     </body>
   </html>  
 `

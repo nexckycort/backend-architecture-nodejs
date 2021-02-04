@@ -1,5 +1,5 @@
 import { Request, Response, Router } from 'express'
-import TestService from '../../../services/tests/TestService'
+import TestService from '../../../../services/tests/TestService'
 
 const router = Router()
 

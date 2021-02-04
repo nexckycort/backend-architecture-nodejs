@@ -1,57 +1,26 @@
-import express, { Request, Response, NextFunction, Application } from 'express'
-import compression from 'compression';
-import helmet from 'helmet'
-import cors from 'cors';
-import bodyParser from 'body-parser'
-import morgan from 'morgan'
+import express from 'express'
+import colors from 'colors'
+import http from 'http'
 
-import routesV1 from './routes/v1'
-import { template } from './helpers/template'
-import { environment } from './config'
-import { pool } from './database/pgPool'
-import { ApiError, InternalError, NotFoundError } from './core/ApiError'
-import db from './database/mongo';
+import { name, port } from 'config'
 
-process.on('uncaughtException', (e) => {
-  console.log(e)
-})
+async function startServer(): Promise<void> {
+  const app = express()
 
-const app: Application = express()
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
+  await require('./loaders').default({ expressApp: app })
 
-app.use(cors());
-app.use(helmet());
-app.use(compression());
+  app.set('port', port)
 
-app.use(bodyParser.json({ limit: '10mb' }))
-app.use(bodyParser.urlencoded({ limit: '10mb', extended: true, parameterLimit: 50000 }))
+  const server = http.createServer(app)
 
-app.use(morgan('dev'))
+  server
+    .listen(port, () => {
+      console.info(`${colors.yellow('########################################################')}
+🛡️  ${colors.bold.green(`Server ${colors.blue(name)} listening on port:`)} ${colors.bold.blue(port)} 🛡️
+${colors.yellow('########################################################')}`)
+    })
+    .on('error', (e) => console.error('error in server.listen ', e))
+}
 
-app.use('/v1', routesV1)
-app.get('/', (req: Request, res: Response) => {
-  res.status(200).send(template('welcome to api'))
-})
-
-app.use((req, res, next) => next(new NotFoundError()))
-
-app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
-  if (err instanceof ApiError) {
-    ApiError.handle(err, res)
-  } else {
-    if (environment === 'development') {
-      console.log(err)
-      return res.status(500).send(err.message)
-    }
-    ApiError.handle(new InternalError(), res)
-  }
-})
-
-pool.connect()
-  .then()
-  .catch((error: any) => console.log(`ERROR: ${error.message || error}`))
-
-db.once('open', function () {
-  console.log('The connection to MongoDB was successful.');
-});
-
-export default app
+startServer().catch((error: Error) => console.error(colors.red('error when starting the api'), error))
