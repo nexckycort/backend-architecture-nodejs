@@ -1,0 +1,14 @@
+{
+  "extends": "standard-with-typescript",
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "plugins": [
+    "eslint-plugin-tsdoc"
+  ],
+  "rules": {
+    "tsdoc/syntax": "warn",
+    "@typescript-eslint/space-before-function-paren": "off",
+    "@typescript-eslint/restrict-template-expressions": "off"
+  }
+}
