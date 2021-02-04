@@ -1,17 +1,20 @@
 {
+  "extends": "@tsconfig/node14/tsconfig.json",
   "compilerOptions": {
-    "module": "CommonJS",
-    "lib": ["ES2019"],
-    "target": "ES2019",
-    "esModuleInterop": true,
-    "noImplicitAny": true,
-    "moduleResolution": "node",
-    "sourceMap": false,
-    "outDir": "prebuild",
-    "baseUrl": ".",
+    "outDir": "lib",
+    "baseUrl": "src",
     "paths": {
-      "*": ["node_modules/*"]
+      "api/*": ["api/*"],
+      "config/*": ["config/*"],
+      "handlers/*": ["handlers/*"],
+      "helpers/*": ["helpers/*"],
+      "interfaces/*": ["interfaces/*"],
+      "jobs/*": ["jobs/*"],
+      "lib/*": ["lib/*"],
+      "loaders/*": ["loaders/*"],
+      "models/*": ["models/*"],
+      "services/*": ["services/*"]
     }
   },
-  "include": ["src/**/*"]
+  "include": ["src"]
 }

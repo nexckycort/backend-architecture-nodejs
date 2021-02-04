@@ -2,7 +2,7 @@ const path = require('path')
 const nodeExternals = require('webpack-node-externals')
 
 module.exports = {
-  entry: path.join(__dirname, '../src/bin/www.ts'),
+  entry: path.join(__dirname, '../src/app.ts'),
   output: {
     path: path.join(__dirname, '../build'),
     filename: 'server.js'
@@ -14,6 +14,7 @@ module.exports = {
     alias: {
       api: path.resolve(__dirname, '../src/api/'),
       config: path.resolve(__dirname, '../src/config/'),
+      handlers: path.resolve(__dirname, '../src/handlers/'),
       helpers: path.resolve(__dirname, '../src/helpers/'),
       interfaces: path.resolve(__dirname, '../src/interfaces/'),
       jobs: path.resolve(__dirname, '../src/jobs/'),
