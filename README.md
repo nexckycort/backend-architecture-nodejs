@@ -1,4 +1,4 @@
-# backend-architecture-nodejs
+# Backend Architecture Nodejs
 
 ## The folder structure 🏢
 
