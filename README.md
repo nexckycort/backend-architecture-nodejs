@@ -4,7 +4,7 @@
 
 ```structure
 ├───src
-│       app.ts          # App entry point
+│        app.ts          # App entry point
 │   ├───api             # Express route controllers and middleware for all the endpoints of the app
 │   ├───config          # Environment variables and configuration related stuff
 │   ├───handlers        # Handlers
@@ -15,14 +15,14 @@
 │   ├───models          # Database models
 │   └───services        # All the business logic is here
 ├───webpack             # Webpack setup
-├───.editorconfig       # ...
+├───.editorconfig       # Editorconfig setup
 ├───.env                # Environment variables
-├───.eslintignore       # ...
-├───.eslintrc           # ...
-├───.huskyrc.json       # ...
-├───.lintstagedrc.json  # ...
-├───.nvmrc              # ...
-├───.prettierrc         # ...
+├───.eslintignore       # To ignore some folder
+├───.eslintrc           # Eslint setup
+├───.huskyrc.json       # Husky setup
+├───.lintstagedrc.json  # lint-staged setup
+├───.nvmrc              # Version nodejs
+├───.prettierrc         # Prettier setup
 ├───.jest.config.js     # Jest setup
 └───tsconfig.json       # TypeScript setup
 ```
