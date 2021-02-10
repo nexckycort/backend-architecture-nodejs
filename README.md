@@ -4,7 +4,7 @@
 
 ```structure
 ├───src
-│        app.ts          # App entry point
+│       app.ts          # App entry point
 │   ├───api             # Express route controllers and middleware for all the endpoints of the app
 │   ├───config          # Environment variables and configuration related stuff
 │   ├───handlers        # Handlers
