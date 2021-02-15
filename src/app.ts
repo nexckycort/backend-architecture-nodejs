@@ -1,14 +1,11 @@
-import express from 'express'
 import colors from 'colors'
 import http from 'http'
 
-import { name, port } from 'config'
+import { name, port } from './config'
+import loaders from './loaders'
 
 async function startServer(): Promise<void> {
-  const app = express()
-
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
-  await require('./loaders').default({ expressApp: app })
+  const { expressApp: app } = await loaders()
 
   app.set('port', port)
 

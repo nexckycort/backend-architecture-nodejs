@@ -4,12 +4,12 @@ import bcrypt from 'bcrypt'
 import crypto from 'crypto'
 import { SendMailOptions } from 'nodemailer'
 
-import UsersModel from 'models/users/users.model'
-import Logger from 'helpers/logger'
-import { secretKey, urlClient } from 'config'
-import { ReqUser, User } from 'interfaces/user.interfaces'
-import { confirmAccountHtml, confirmAccountText } from 'helpers/templates/emails/confirmAccount'
-import { SendEmail } from 'handlers/email'
+import UsersModel from '../../models/users/users.model'
+import Logger from '../../helpers/logger'
+import { secretKey, urlClient } from '../../config'
+import { ReqUser, User } from '../../interfaces/user.interfaces'
+import { confirmAccountHtml, confirmAccountText } from '../../helpers/templates/emails/confirmAccount'
+import { SendEmail } from '../../handlers/email'
 
 export default class UsersService {
   private static instance: UsersService

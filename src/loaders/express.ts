@@ -1,16 +1,18 @@
-import { Request, Response, Application } from 'express'
+import express, { Request, Response, Application, NextFunction } from 'express'
 import bodyParser from 'body-parser'
 import compression from 'compression'
 import morgan from 'morgan'
 import helmet from 'helmet'
 import cors from 'cors'
 
-import routesV1 from 'api/routes/v1'
-import { template } from 'helpers/templates/template'
-import { NotFoundError } from 'helpers/api.response'
-import { api } from 'config'
+import routesV1 from '../api/routes/v1'
+import { template } from '../helpers/templates/template'
+import { BadRequestError, NotFoundError } from '../helpers/api.response'
+import { api } from '../config'
 
-export default async ({ app }: { app: Application }): Promise<void> => {
+export default (): Application => {
+  const app = express()
+
   app.disable('x-powered-by')
 
   app.use(cors())
@@ -23,9 +25,16 @@ export default async ({ app }: { app: Application }): Promise<void> => {
   app.use(morgan('dev'))
 
   app.use(api.prefix, routesV1)
-  app.get('/', (req: Request, res: Response) => {
+  app.get('/', (_req: Request, res: Response) => {
     res.status(200).send(template('welcome to api'))
   })
 
   app.use((_req, res) => NotFoundError(res))
+
+  app.use((err: Error, _req: Request, res: Response, next: NextFunction) => {
+    if (err !== undefined) return BadRequestError(res)
+    next()
+  })
+
+  return app
 }

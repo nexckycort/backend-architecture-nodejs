@@ -1,4 +1,4 @@
-import { FindOptions, UpdateOptions } from 'interfaces/querys.interfaces'
+import { FindOptions, UpdateOptions } from '../interfaces/querys.interfaces'
 
 export const buildSelect = (options: FindOptions | undefined, table: string): string => {
   let attributes: any

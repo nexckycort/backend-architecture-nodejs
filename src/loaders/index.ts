@@ -6,8 +6,20 @@ import mongooseLoader from './mongoose'
 import expressLoader from './express'
 import Logger from '../helpers/logger'
 
-export default async ({ expressApp }: { expressApp: Application }): Promise<void> => {
+interface PreLoaders {
+  expressApp: Application | undefined
+}
+
+interface Loaders {
+  expressApp: Application
+}
+
+const loaders = async (): Promise<Loaders> => {
   Logger.info(colors.bold.italic.blue('Loading configuration... 💻'))
+
+  const loaders: PreLoaders = {
+    expressApp: undefined
+  }
 
   try {
     await pool.connect()
@@ -26,10 +38,14 @@ export default async ({ expressApp }: { expressApp: Application }): Promise<void
   }
 
   try {
-    await expressLoader({ app: expressApp })
+    loaders.expressApp = expressLoader()
     Logger.info(colors.bold.green('Express loaded ✌️'))
   } catch (error) {
     Logger.error(colors.red('error loading Express'), error)
     throw error
   }
+
+  return loaders as Loaders
 }
+
+export default loaders
