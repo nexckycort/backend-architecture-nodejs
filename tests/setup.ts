@@ -1,5 +1,5 @@
 import dotenv from 'dotenv'
 
-if (!process.env.GITLAB) {
-  dotenv.config()
-}
+dotenv.config()
+
+jest.setTimeout(10000)

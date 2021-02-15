@@ -1,13 +1,12 @@
 import supertest from 'supertest'
 
-import app from '../../../../src/app'
+import app from '../../../../src/loaders/express'
 
 describe('welcome to api', () => {
   const endpoint = '/'
-  const request = supertest(app)
+  const request = supertest(app())
 
-  beforeEach(() => {
-  })
+  beforeEach(() => {})
 
   it('Home', async (done) => {
     const response = await request.get(endpoint)
