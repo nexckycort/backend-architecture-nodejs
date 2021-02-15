@@ -1,6 +1,9 @@
 .vscode/ 
 node_modules/
 
+jest.config.ts
+webpack.config.ts
+
 # Build products
 build/
 dist/
