@@ -29,18 +29,6 @@
   "pkg": {
     "scripts": "server.js"
   },
-  "_moduleAliases": {
-    "api": "dist/api",
-    "config": "dist/config",
-    "handlers": "dist/handlers",
-    "helpers": "dist/helpers",
-    "interfaces": "dist/interfaces",
-    "jobs": "dist/jobs",
-    "lib": "dist/lib",
-    "loaders": "dist/loaders",
-    "models": "dist/models",
-    "services": "dist/services"
-  },
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.0",
