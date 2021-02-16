@@ -1,6 +1,21 @@
 import path from 'path'
 import { Configuration } from 'webpack'
 import nodeExternals from 'webpack-node-externals'
+const {
+  compilerOptions: { paths: tsconfigPaths }
+} = require('./tsconfig.json')
+
+const paths = Object.assign(
+  {},
+  ...Object.keys(tsconfigPaths).map((key) => {
+    const keyTemp = key.includes('/*') ? key.slice(0, -2) : key
+    const pathUrl = `${path.join(__dirname, 'src/', tsconfigPaths[key][0])}`
+    const valueTemp = pathUrl.includes('/*') ? pathUrl.slice(0, -1) : `${pathUrl}/`
+    return {
+      [keyTemp]: valueTemp
+    }
+  })
+)
 
 const config: Configuration = {
   entry: path.join(__dirname, 'src/app.ts'),
@@ -12,18 +27,7 @@ const config: Configuration = {
   target: 'node',
   externals: [nodeExternals()],
   resolve: {
-    alias: {
-      api: path.resolve(__dirname, 'src/api/'),
-      config: path.resolve(__dirname, 'src/config/'),
-      handlers: path.resolve(__dirname, 'src/handlers/'),
-      helpers: path.resolve(__dirname, 'src/helpers/'),
-      interfaces: path.resolve(__dirname, 'src/interfaces/'),
-      jobs: path.resolve(__dirname, 'src/jobs/'),
-      lib: path.resolve(__dirname, 'src/lib/'),
-      loaders: path.resolve(__dirname, 'src/loaders/'),
-      models: path.resolve(__dirname, 'src/models/'),
-      services: path.resolve(__dirname, 'src/services/')
-    },
+    alias: paths,
     extensions: ['.ts']
   },
   module: {
