@@ -12,7 +12,7 @@
 │   ├───interfaces      # interfaces
 │   ├───jobs            # jobs
 │   ├───loaders         # Split the startup process into modules
-│   ├───models          # Database models
+│   ├───models          # data access layer
 │   └───services        # All the business logic is here
 ├───.editorconfig       # Editorconfig setup
 ├───.env                # Environment variables
