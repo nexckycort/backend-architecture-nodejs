@@ -5,7 +5,7 @@
     "baseUrl": "src",
     "paths": {
       "api/*": ["api/*"],
-      "config/*": ["config/*"],
+      "config": ["config"],
       "handlers/*": ["handlers/*"],
       "helpers/*": ["helpers/*"],
       "interfaces/*": ["interfaces/*"],
