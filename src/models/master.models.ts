@@ -1,7 +1,7 @@
-import { FindOptions, UpdateOptions } from '../interfaces/querys.interfaces'
-import { buildSelect, buildInsert, buildUpdate } from '../helpers/querys'
-import { pool } from '../loaders/pgPool'
-import * as querys from './querys.models'
+import { FindOptions, UpdateOptions } from 'interfaces/querys.interfaces'
+import { buildSelect, buildInsert, buildUpdate } from 'helpers/querys'
+import { pool } from 'loaders/pgPool'
+import * as querys from 'models/querys.models'
 
 export default class MasterServices {
   constructor(private readonly table: string) {}

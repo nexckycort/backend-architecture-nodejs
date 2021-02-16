@@ -1,6 +1,6 @@
 import Joi, { StringSchema } from 'joi'
 import { Request, Response, NextFunction } from 'express'
-import { BadRequestError } from '../../helpers/api.response'
+import { BadRequestError } from 'helpers/api.response'
 
 export enum ValidationSource {
   BODY = 'body',

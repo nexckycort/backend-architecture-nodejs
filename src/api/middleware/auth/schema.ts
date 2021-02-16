@@ -1,5 +1,5 @@
 import Joi from 'joi'
-import { JoiAuthBearer } from '../../middleware/validator'
+import { JoiAuthBearer } from 'api/middleware/validator'
 
 export default {
   headers: Joi.object()

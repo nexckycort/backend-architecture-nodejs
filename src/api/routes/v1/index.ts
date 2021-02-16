@@ -1,7 +1,7 @@
 import { Router } from 'express'
 
-import signup from './access/signup'
-import signin from './access/signin'
+import signup from 'api/routes/v1/access/signup'
+import signin from 'api/routes/v1/access/signin'
 // import auth from '../../middleware/auth'
 
 const router = Router({ caseSensitive: true })

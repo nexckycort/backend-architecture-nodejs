@@ -1,4 +1,4 @@
-import MasterServices from '../../models/master.models'
+import MasterServices from 'models/master.models'
 
 const table = 'public.users'
 export default class UsersModel extends MasterServices {

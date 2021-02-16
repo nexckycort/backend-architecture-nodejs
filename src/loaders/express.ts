@@ -5,10 +5,10 @@ import morgan from 'morgan'
 import helmet from 'helmet'
 import cors from 'cors'
 
-import routesV1 from '../api/routes/v1'
-import { template } from '../helpers/templates/template'
-import { BadRequestError, NotFoundError } from '../helpers/api.response'
-import { api } from '../config'
+import routesV1 from 'api/routes/v1'
+import { template } from 'helpers/templates/template'
+import { BadRequestError, NotFoundError } from 'helpers/api.response'
+import { api } from 'config'
 
 export default (): Application => {
   const app = express()

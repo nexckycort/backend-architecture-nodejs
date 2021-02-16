@@ -1,5 +1,5 @@
 import nodemailer, { SendMailOptions } from 'nodemailer'
-import { emailHost, emailPassword, emailPort, emailUser } from '../config'
+import { emailHost, emailPassword, emailPort, emailUser } from 'config'
 
 const transporter = nodemailer.createTransport({
   host: emailHost,

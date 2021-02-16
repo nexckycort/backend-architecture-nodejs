@@ -1,10 +1,10 @@
 import { Request, Response, Router, RequestHandler } from 'express'
 
-import { SuccessResponse, AuthFailureError, BadRequestError, InternalError } from '../../../../helpers/api.response'
-import UsersService from '../../../../services/users/users.service'
-import validator from '../../../middleware/validator'
-import Logger from '../../../../helpers/logger'
-import _ from '../../../../helpers/utils'
+import { SuccessResponse, AuthFailureError, BadRequestError, InternalError } from 'helpers/api.response'
+import UsersService from 'services/users/users.service'
+import validator from 'api/middleware/validator'
+import Logger from 'helpers/logger'
+import _ from 'helpers/utils'
 import schema from './schema'
 
 const router = Router()

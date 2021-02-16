@@ -1,10 +1,10 @@
 import { Application } from 'express'
 import colors from 'colors'
 
-import { pool } from './pgPool'
-import mongooseLoader from './mongoose'
-import expressLoader from './express'
-import Logger from '../helpers/logger'
+import { pool } from 'loaders/pgPool'
+import mongooseLoader from 'loaders/mongoose'
+import expressLoader from 'loaders/express'
+import Logger from 'helpers/logger'
 
 interface PreLoaders {
   expressApp: Application | undefined

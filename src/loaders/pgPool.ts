@@ -1,5 +1,5 @@
 import { Pool, PoolConfig } from 'pg'
-import { pg } from '../config'
+import { pg } from 'config'
 
 const poolConfig: PoolConfig = {
   user: pg.user,

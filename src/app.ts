@@ -1,8 +1,8 @@
 import colors from 'colors'
 import http from 'http'
 
-import { name, port } from './config'
-import loaders from './loaders'
+import { name, port } from 'config'
+import loaders from 'loaders'
 
 async function startServer(): Promise<void> {
   const { expressApp: app } = await loaders()

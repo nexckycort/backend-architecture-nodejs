@@ -1,11 +1,11 @@
 import { Request, Response, NextFunction, Router } from 'express'
 import jwt from 'jsonwebtoken'
 
-import { AuthFailureError } from '../../../helpers/api.response'
-import validator, { ValidationSource } from '../../middleware/validator'
-import schema from '../../middleware/auth/schema'
-import Logger from '../../../helpers/logger'
-import { secretKey } from '../../../config'
+import { AuthFailureError } from 'helpers/api.response'
+import validator, { ValidationSource } from 'api/middleware/validator'
+import schema from 'api/middleware/auth/schema'
+import Logger from 'helpers/logger'
+import { secretKey } from 'config'
 
 const router = Router()
 
