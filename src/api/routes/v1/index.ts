@@ -1,12 +1,9 @@
 import { Router } from 'express'
 
-import signup from 'api/routes/v1/access/signup'
-import signin from 'api/routes/v1/access/signin'
-// import auth from '../../middleware/auth'
+import test from 'api/routes/v1/test'
 
 const router = Router({ caseSensitive: true })
 
-router.use('/signup', signup)
-router.use('/signin', signin)
+router.use('/test', test)
 
 export default router

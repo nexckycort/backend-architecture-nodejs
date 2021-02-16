@@ -1,11 +1,11 @@
 import { Response } from 'express'
 
-export enum StatusCode {
+enum StatusCode {
   SUCCESS = '20000',
   FAILURE = '40001'
 }
 
-export enum TypeErrors {
+enum TypeErrors {
   TECNICO = 'Tecnico',
   NOTFOUND = 'Not Found',
   INTERNAL_ERROR = 'Internal error',
@@ -16,7 +16,7 @@ export enum TypeErrors {
   ECONNRESET = 'ECONNRESET'
 }
 
-export enum ResponseStatus {
+enum ResponseStatus {
   SUCCESS = 200,
   BAD_REQUEST = 400,
   UNAUTHORIZED = 401,
@@ -30,16 +30,12 @@ export const SuccessResponse = (res: Response, msg = 'OK', data: any = undefined
     message: msg,
     StatusCode: StatusCode.SUCCESS
   }
-  if (data !== undefined) Object.assign(body, data)
+  if (data !== undefined) Object.assign(body, { data })
   return res.status(ResponseStatus.SUCCESS).json(body)
 }
 
 export const NotFoundError = (res: Response): Response => {
   return responseError(StatusCode.FAILURE, TypeErrors.NOTFOUND, ResponseStatus.NOT_FOUND, res)
-}
-
-export const AuthFailureError = (res: Response, message: string = TypeErrors.UNAUTHORIZED): Response => {
-  return responseError(StatusCode.FAILURE, message, ResponseStatus.UNAUTHORIZED, res)
 }
 
 export const BadRequestError = (res: Response, message: string = TypeErrors.BAD_REQUEST): Response => {

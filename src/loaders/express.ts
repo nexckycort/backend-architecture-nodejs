@@ -8,14 +8,14 @@ import cors from 'cors'
 import routesV1 from 'api/routes/v1'
 import { template } from 'helpers/templates/template'
 import { BadRequestError, NotFoundError } from 'helpers/api.response'
-import { api } from 'config'
+import { api, corsUrl } from 'config'
 
 export default (): Application => {
   const app = express()
 
   app.disable('x-powered-by')
 
-  app.use(cors())
+  app.use(cors({ origin: corsUrl, optionsSuccessStatus: 200 }))
   app.use(helmet())
   app.use(compression())
 
