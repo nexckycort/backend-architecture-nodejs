@@ -14,7 +14,6 @@
 │   ├───loaders         # Split the startup process into modules
 │   ├───models          # Database models
 │   └───services        # All the business logic is here
-├───webpack             # Webpack setup
 ├───.editorconfig       # Editorconfig setup
 ├───.env                # Environment variables
 ├───.eslintignore       # To ignore some folder
@@ -23,8 +22,9 @@
 ├───.lintstagedrc.json  # lint-staged setup
 ├───.nvmrc              # Version nodejs
 ├───.prettierrc         # Prettier setup
-├───.jest.config.js     # Jest setup
-└───tsconfig.json       # TypeScript setup
+├───.jest.config.ts     # Jest setup
+├───tsconfig.json       # TypeScript setup
+└───webpack.config.ts   # Webpack setup
 ```
 
 ### Layer architecture
