@@ -20,6 +20,9 @@ const config: Config.InitialOptions = {
   roots: ['<rootDir>/tests'],
   setupFiles: ['<rootDir>/tests/setup.ts'],
   collectCoverageFrom: ['<rootDir>/src/**/*.ts', '!**/node_modules/**'],
+  coverageDirectory: 'coverage',
+  coverageReporters: ['json-summary', 'html-spa', 'text'],
+  coverageProvider: 'v8',
   moduleNameMapper: paths
 }
 export default config

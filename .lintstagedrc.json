@@ -2,6 +2,7 @@
   "*.ts": [
     "prettier --write src",
     "eslint 'src/***.ts' --fix",
-    "git add"
+    "istanbul-badges-readme",
+    "git add ."
   ]
 }
