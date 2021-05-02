@@ -17,21 +17,25 @@
     "lint:fix": "eslint . --ext .ts --fix",
     "build:clean": "rimraf build",
     "compile": "webpack --config webpack.config.ts",
-    "postbuild": "ts-node-script scripts/postbuild.ts",
-    "build": "npm-run-all build:clean compile postbuild",
-    "check-updates": "ncu",
+    "post:build": "ts-node-script scripts/postbuild.ts",
+    "build": "npm-run-all build:clean compile post:build",
+    "ncu": "ncu",
     "tdocs": "typedoc --out docs ./src",
     "upgrade": "npm update --save-dev && npm update --save",
-    "pkg:win": "npm run build && rimraf pkg && mkdir pkg && pkg package.json --targets node14-win-x64 --output ./pkg/server",
-    "pkg:linux": "npm run build && rimraf pkg && mkdir pkg && pkg package.json --target node14-linux-x64 --output ./pkg/server"
+    "clean:pkg": "rimraf pkg",
+    "build:pkg": "pkg ./build/package.json --output ./pkg/server",
+    "pkg": "npm-run-all build clean:pkg build:pkg"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/nexckycort/backend-architecture-nodejs"
   },
-  "bin": "./build/server.js",
+  "bin": "./server.js",
   "pkg": {
-    "scripts": "server.js"
+    "targets": [
+      "node14-win-x64",
+      "node14-linux-x64"
+    ]
   },
   "license": "ISC",
   "dependencies": {
