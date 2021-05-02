@@ -8,7 +8,6 @@
   ],
   "rules": {
     "tsdoc/syntax": "warn",
-    "@typescript-eslint/space-before-function-paren": "off",
-    "@typescript-eslint/restrict-template-expressions": "off"
+    "@typescript-eslint/space-before-function-paren": "off"
   }
 }
