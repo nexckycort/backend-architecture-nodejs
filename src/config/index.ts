@@ -7,7 +7,7 @@ if (envFound.error !== undefined) {
 }
 
 // Mapper for environment variables
-export const environment = process.env.NODE_ENV
+export const environment = process.env.NODE_ENV ?? ''
 export const port = process.env.PORT ?? ''
 export const name = process.env.NAME_API ?? ''
 

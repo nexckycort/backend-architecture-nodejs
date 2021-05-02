@@ -1,10 +1,12 @@
+/* eslint-disable import/first */
+process.stdout.write('\x1Bc')
 import colors from 'colors'
 import http from 'http'
 
 import { name, port } from 'config'
 import loaders from 'loaders'
 
-const { expressApp: app } = loaders()
+const { server: app } = loaders()
 
 app.set('port', port)
 

@@ -7,9 +7,11 @@ enum StatusCode {
 
 enum TypeErrors {
   TECNICO = 'Tecnico',
+  BUSINESS = 'Negocio',
   NOTFOUND = 'Not Found',
   INTERNAL_ERROR = 'Internal error',
   BAD_REQUEST = 'Bad request',
+  PAYLOAD_TOO_LARGE = 'Payload Too Large',
   UNAUTHORIZED = 'Authentication error',
   ECONNREFUSED = 'ECONNREFUSED',
   ECONNABORTED = 'ECONNABORTED',
@@ -17,21 +19,32 @@ enum TypeErrors {
 }
 
 enum ResponseStatus {
-  SUCCESS = 200,
+  OK = 200,
+  CREATED = 201,
   BAD_REQUEST = 400,
   UNAUTHORIZED = 401,
   FORBIDDEN = 403,
   NOT_FOUND = 404,
+  PAYLOAD_TOO_LARGE = 413,
   INTERNAL_ERROR = 500
 }
 
-export const SuccessResponse = (res: Response, msg = 'OK', data: any = undefined): Response => {
+export const SuccessOkResponse = (res: Response, msg = 'OK', data?: unknown): Response => {
   const body = {
     message: msg,
     StatusCode: StatusCode.SUCCESS
   }
   if (data !== undefined) Object.assign(body, { data })
-  return res.status(ResponseStatus.SUCCESS).json(body)
+  return res.status(ResponseStatus.OK).json(body)
+}
+
+export const SuccessCreatedResponse = (res: Response, msg = 'OK', data?: unknown): Response => {
+  const body = {
+    message: msg,
+    StatusCode: StatusCode.SUCCESS
+  }
+  if (data !== undefined) Object.assign(body, { data })
+  return res.status(ResponseStatus.CREATED).json(body)
 }
 
 export const NotFoundError = (res: Response): Response => {
@@ -40,6 +53,10 @@ export const NotFoundError = (res: Response): Response => {
 
 export const BadRequestError = (res: Response, message: string = TypeErrors.BAD_REQUEST): Response => {
   return responseError(StatusCode.FAILURE, message, ResponseStatus.BAD_REQUEST, res)
+}
+
+export const PayloadTooLargeError = (res: Response, message: string = TypeErrors.PAYLOAD_TOO_LARGE): Response => {
+  return responseError(StatusCode.FAILURE, message, ResponseStatus.PAYLOAD_TOO_LARGE, res)
 }
 
 export const InternalError = (res: Response): Response => {

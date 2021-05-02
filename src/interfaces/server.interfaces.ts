@@ -1,9 +1,14 @@
 import { Application } from 'express'
 
 export interface PreLoaders {
-  expressApp: Application | undefined
+  server: Application | undefined
 }
 
 export interface Loaders {
-  expressApp: Application
+  server: Application
+}
+
+export enum ERROR_HANDLERS {
+  SYNTAX_ERROR = 'entity.parse.failed',
+  PAYLOAD_TOO_LARGE = 'entity.too.large'
 }

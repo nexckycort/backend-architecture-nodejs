@@ -1,21 +1,24 @@
 import colors from 'colors'
 
-import expressLoader from 'loaders/express'
-import Logger from 'helpers/logger'
 import { Loaders, PreLoaders } from 'interfaces/server.interfaces'
+import serverLoader from 'loaders/server'
+import { environment } from 'config'
+import Logger from 'helpers/logger'
 
 const loaders = (): Loaders => {
   Logger.info(colors.bold.italic.blue('Loading configuration... 💻'))
+  const environmentMsg = `${colors.bold.magenta('Environment:')} ${colors.italic.bold.yellow(environment)}`
+  Logger.info(environmentMsg)
 
   const loaders: PreLoaders = {
-    expressApp: undefined
+    server: undefined
   }
 
   try {
-    loaders.expressApp = expressLoader()
-    Logger.info(colors.bold.green('Express loaded ✌️'))
+    loaders.server = serverLoader()
+    Logger.info(colors.bold.green('Server loaded ✌️'))
   } catch (error) {
-    Logger.error(colors.red('error loading Express'), error)
+    Logger.error(colors.red('error loading Server'), error)
     throw error
   }
 

@@ -2,7 +2,7 @@
 
 | Statements                  | Branches                | Functions                 | Lines                |
 | --------------------------- | ----------------------- | ------------------------- | -------------------- |
-| ![Statements](https://img.shields.io/badge/Coverage-93.7%25-brightgreen.svg) | ![Branches](https://img.shields.io/badge/Coverage-85.71%25-yellow.svg) | ![Functions](https://img.shields.io/badge/Coverage-82.35%25-yellow.svg) | ![Lines](https://img.shields.io/badge/Coverage-93.7%25-brightgreen.svg)    |
+| ![Statements](https://img.shields.io/badge/Coverage-86.39%25-yellow.svg) | ![Branches](https://img.shields.io/badge/Coverage-90.32%25-brightgreen.svg) | ![Functions](https://img.shields.io/badge/Coverage-77.27%25-red.svg) | ![Lines](https://img.shields.io/badge/Coverage-86.39%25-yellow.svg)    |
 
 ## The folder structure 🏢
 

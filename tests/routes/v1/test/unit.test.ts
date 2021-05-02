@@ -1,12 +1,10 @@
 import supertest from 'supertest'
 
-import app from '../../../../src/loaders/express'
+import app from '../../../../src/loaders/server'
 
 describe('test', () => {
   const endpoint = '/api/v1.0/test'
   const request = supertest(app())
-
-  beforeEach(() => {})
 
   it('Should send error when empty body is sent', async (done) => {
     const response = await request.post(endpoint)

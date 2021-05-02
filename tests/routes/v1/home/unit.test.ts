@@ -1,9 +1,9 @@
 import supertest from 'supertest'
 
-import app from '../../../../src/loaders/express'
+import app from '../../../../src/loaders/server'
 
 describe('Home', () => {
-  const endpoint = '/'
+  const endpoint = '/status'
   const request = supertest(app())
 
   beforeEach(() => {})
