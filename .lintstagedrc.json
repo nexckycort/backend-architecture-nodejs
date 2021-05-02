@@ -2,7 +2,7 @@
   "*.ts": [
     "prettier --write src",
     "eslint 'src/***.ts' --fix",
-    "jest --forceExit --detectOpenHandles --coverage --verbose",
+    "jest --forceExit --detectOpenHandles --coverage --verbose --passWithNoTests",
     "istanbul-badges-readme",
     "git add ."
   ]
