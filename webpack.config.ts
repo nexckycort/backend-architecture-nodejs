@@ -1,6 +1,7 @@
-import path from 'path'
-import { Configuration } from 'webpack'
 import nodeExternals from 'webpack-node-externals'
+import CopyPlugin from 'copy-webpack-plugin'
+import { Configuration } from 'webpack'
+import path from 'path'
 const {
   compilerOptions: { paths: tsconfigPaths }
 } = require('./tsconfig.json')
@@ -30,6 +31,14 @@ const config: Configuration = {
     alias: paths,
     extensions: ['.ts']
   },
+  plugins: [
+    new CopyPlugin({
+      patterns: [
+        { from: '.env', to: '.' },
+        { from: 'package.json', to: '.' }
+      ]
+    })
+  ],
   module: {
     rules: [
       {
